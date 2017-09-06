@@ -18,7 +18,7 @@ public class BancoHelper extends SQLiteOpenHelper {
     //String auxiliares
     private static final String TAG = "sql";
     private static final String TEXT_TYPE = " TEXT";
-    private static final String NUMBER_TYPE  =" INTEGER";
+    private static final String NUMBER_TYPE = " INTEGER";
     private static final String FLOAT_TYPE = " FLOAT";
     private static final String VIRGULA = ",";
 
@@ -28,17 +28,17 @@ public class BancoHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final String SQL_CREATE_TABLE =
-            ("CREATE TABLE "+LivroContrato.LivroEntry.TABLE_NAME+
-                    "("+
-                    LivroContrato.LivroEntry._ID + NUMBER_TYPE + " PRIMARY KEY"+
+            ("CREATE TABLE " + LivroContrato.LivroEntry.TABLE_NAME +
+                    "(" +
+                    LivroContrato.LivroEntry._ID + NUMBER_TYPE + " PRIMARY KEY" +
                     LivroContrato.LivroEntry.NOME + TEXT_TYPE + VIRGULA +
-                    LivroContrato.LivroEntry.AUTOR + TEXT_TYPE + VIRGULA+
-                    LivroContrato.LivroEntry.ANO + TEXT_TYPE + VIRGULA+
+                    LivroContrato.LivroEntry.AUTOR + TEXT_TYPE + VIRGULA +
+                    LivroContrato.LivroEntry.ANO + TEXT_TYPE + VIRGULA +
                     LivroContrato.LivroEntry.NOTA + FLOAT_TYPE +
-            ");");
+                    ");");
 
     private static final String SQL_DROP_TABLE =
-            ("DROP TABLE "+ LivroContrato.LivroEntry.TABLE_NAME+";"
+            ("DROP TABLE " + LivroContrato.LivroEntry.TABLE_NAME + ";"
             );
 
     public BancoHelper(Context context) {
@@ -56,7 +56,7 @@ public class BancoHelper extends SQLiteOpenHelper {
     }
 
     //INSERE UM NOVO LIVRO, OU ATUALIZA SE JA EXISTE
-    public long save(Livro livro){
+    public long save(Livro livro) {
         long id = livro.getId();
         SQLiteDatabase db = getWritableDatabase();
 
@@ -84,26 +84,27 @@ public class BancoHelper extends SQLiteOpenHelper {
                 return id;
             }
 
-        }finally {
+        } finally {
             db.close();
         }
     }
 
     //Consulta a lista com todos os livros
-    public List<Livro> findAll(){
+    public List<Livro> findAll() {
         SQLiteDatabase db = getReadableDatabase();
-        try{
+        try {
             Cursor c = db.query(LivroContrato.LivroEntry.TABLE_NAME, null, null, null, null, null, null, null);
             return toList(c);
-        }finally{
+        } finally {
 
         }
     }
+
     //Le o cursor e cria a lista de livros
     private List<Livro> toList(Cursor c) {
         List<Livro> livros = new ArrayList<>();
-        if (c.moveToFirst()){
-            do{
+        if (c.moveToFirst()) {
+            do {
                 Livro livro = new Livro();
                 livros.add(livro);
 
@@ -113,26 +114,27 @@ public class BancoHelper extends SQLiteOpenHelper {
                 livro.setAutor(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.AUTOR)));
                 livro.setAno(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.ANO)));
                 livro.setNota(c.getFloat(c.getColumnIndex(LivroContrato.LivroEntry.NOTA)));
-            }while(c.moveToNext());
+            } while (c.moveToNext());
         }
         return livros;
     }
+
     //executa um sql
-    public void execSQL(String sql){
+    public void execSQL(String sql) {
         SQLiteDatabase db = getWritableDatabase();
-        try{
+        try {
             db.execSQL(sql);
-        }finally {
+        } finally {
             db.close();
         }
     }
 
     //executa um sql
-    public void execSQL(String sql, Object[] args){
+    public void execSQL(String sql, Object[] args) {
         SQLiteDatabase db = getWritableDatabase();
-        try{
+        try {
             db.execSQL(sql, args);
-        }finally {
+        } finally {
             db.close();
         }
 

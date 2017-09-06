@@ -11,21 +11,22 @@ public class MainActivity extends AppCompatActivity {
     private static final int RETORNO_CADASTRO = 11;
 
     Button bt1, bt2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bt1 = (Button)findViewById(R.id.button);
-        bt2 = (Button)findViewById(R.id.button2);
+        bt1 = (Button) findViewById(R.id.button);
+        bt2 = (Button) findViewById(R.id.button2);
     }
 
-    public void Cadastro(View view){
+    public void Cadastro(View view) {
         Intent i = new Intent(this, Main2Activity.class);
         startActivityForResult(i, RETORNO_CADASTRO);
     }
 
-    public void Listar(View view){
+    public void Listar(View view) {
         Intent i = new Intent(this, Main3Activity.class);
         startActivity(i);
 

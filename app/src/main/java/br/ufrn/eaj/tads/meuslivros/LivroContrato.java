@@ -12,7 +12,7 @@ public class LivroContrato {
 
     }
 
-    public static class LivroEntry implements BaseColumns{
+    public static class LivroEntry implements BaseColumns {
         public static final String TABLE_NAME = "Livro";
         public static final String NOME = "nome";
         public static final String AUTOR = "autor";

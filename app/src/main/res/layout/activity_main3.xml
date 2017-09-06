@@ -96,6 +96,7 @@
         app:layout_constraintLeft_toLeftOf="@+id/textView11" />
 
     <Button
+        android:onClick="Anterior"
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,6 +109,7 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
+        android:onClick="Proximo"
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

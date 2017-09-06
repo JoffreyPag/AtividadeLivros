@@ -19,11 +19,11 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        ed1 = (EditText)findViewById(R.id.editText);
-        ed2 = (EditText)findViewById(R.id.editText2);
-        ed3 = (EditText)findViewById(R.id.editText3);
+        ed1 = (EditText) findViewById(R.id.editText);
+        ed2 = (EditText) findViewById(R.id.editText2);
+        ed3 = (EditText) findViewById(R.id.editText3);
 
-        rt = (RatingBar)findViewById(R.id.ratingBar);
+        rt = (RatingBar) findViewById(R.id.ratingBar);
 
         //salvar
         b3 = (Button) findViewById(R.id.button3);
@@ -34,7 +34,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
 
-    public void Salvar(View view){
+    public void Salvar(View view) {
         Livro novoLivro = new Livro();
         novoLivro.setNome(ed1.getText().toString());
         novoLivro.setAutor(ed2.getText().toString());
@@ -44,7 +44,8 @@ public class Main2Activity extends AppCompatActivity {
         setResult(RESULT_OK);
         finish();
     }
-    public void Cancelar(View view){
+
+    public void Cancelar(View view) {
         setResult(RESULT_CANCELED);
         finish();
     }
