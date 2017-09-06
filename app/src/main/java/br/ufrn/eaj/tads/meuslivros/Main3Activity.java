@@ -50,7 +50,7 @@ public class Main3Activity extends AppCompatActivity {
                 anterior.setClickable(true);
             }
             //se nao estiver no fim da lista
-            if (indice < tamLista) {
+            if (indice < tamLista-1) {
                 proximo.setClickable(true);
             } else {
                 //se estiver no fim da lista

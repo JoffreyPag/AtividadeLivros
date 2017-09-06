@@ -30,7 +30,7 @@ public class BancoHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_TABLE =
             ("CREATE TABLE " + LivroContrato.LivroEntry.TABLE_NAME +
                     "(" +
-                    LivroContrato.LivroEntry._ID + NUMBER_TYPE + " PRIMARY KEY" +
+                    LivroContrato.LivroEntry._ID + NUMBER_TYPE + " PRIMARY KEY " + VIRGULA +
                     LivroContrato.LivroEntry.NOME + TEXT_TYPE + VIRGULA +
                     LivroContrato.LivroEntry.AUTOR + TEXT_TYPE + VIRGULA +
                     LivroContrato.LivroEntry.ANO + TEXT_TYPE + VIRGULA +
