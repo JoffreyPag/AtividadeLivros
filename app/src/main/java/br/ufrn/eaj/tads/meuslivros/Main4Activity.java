@@ -32,7 +32,7 @@ public class Main4Activity extends AppCompatActivity {
         livros = bh.findAll();
         preencheTitulos();
 
-        final AutoCompleteTextView autocompletelivro = (AutoCompleteTextView)findViewById(R.id.campoAltoCompletar);
+        AutoCompleteTextView autocompletelivro = (AutoCompleteTextView)findViewById(R.id.campoAltoCompletar);
         adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, titulos);
         autocompletelivro.setAdapter(adaptador);
 
@@ -52,6 +52,9 @@ public class Main4Activity extends AppCompatActivity {
     }
 
     public void preencheTitulos(){
+
+        titulos = new String[livros.size()];
+
         int i=0;
         for(Livro li : livros){
             titulos[i] = li.getNome();
