@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         bt2 = (Button) findViewById(R.id.button2);
         busclivr = (Button) findViewById(R.id.buscarLivrobotao);
 
-        cons = (ConstraintLayout)findViewById(R.id.constraintao);
+        cons = (ConstraintLayout) findViewById(R.id.constraintao);
     }
 
     public void Cadastro(View view) {
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void BuscarLivro(View view){
+    public void BuscarLivro(View view) {
         Intent i = new Intent(this, Main4Activity.class);
         startActivity(i);
     }
@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == RETORNO_CADASTRO){
-            if(resultCode == RESULT_OK){
+        if (requestCode == RETORNO_CADASTRO) {
+            if (resultCode == RESULT_OK) {
                 Snackbar snak = Snackbar.make(cons, "Livro Cadastrado", Snackbar.LENGTH_SHORT);
                 snak.show();
-            }else {
+            } else {
                 Snackbar snak = Snackbar.make(cons, "Cadastro Cancelado", Snackbar.LENGTH_SHORT);
                 snak.show();
             }
