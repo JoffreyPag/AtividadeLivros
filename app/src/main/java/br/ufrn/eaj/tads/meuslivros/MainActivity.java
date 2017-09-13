@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int RETORNO_CADASTRO = 11;
 
-    Button bt1, bt2, busclivr;
+    //Button bt1, bt2, busclivr;
     ConstraintLayout cons;
 
     @Override
@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bt1 = (Button) findViewById(R.id.button);
-        bt2 = (Button) findViewById(R.id.button2);
-        busclivr = (Button) findViewById(R.id.buscarLivrobotao);
+        //bt1 = (Button) findViewById(R.id.button);
+       // bt2 = (Button) findViewById(R.id.button2);
+        //busclivr = (Button) findViewById(R.id.buscarLivrobotao);
 
         cons = (ConstraintLayout) findViewById(R.id.constraintao);
     }
@@ -40,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void BuscarLivro(View view) {
         Intent i = new Intent(this, Main4Activity.class);
+        startActivity(i);
+    }
+
+    public void ListaTodos(View view){
+        Intent i = new Intent(this, ActivityListView.class);
         startActivity(i);
     }
 
