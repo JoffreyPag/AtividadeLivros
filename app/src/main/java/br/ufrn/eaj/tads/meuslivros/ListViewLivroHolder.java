@@ -16,7 +16,7 @@ public class ListViewLivroHolder {
         titulo = (TextView) v.findViewById(R.id.tituloLista);
         autor = (TextView) v.findViewById(R.id.autorLista);
         ano = (TextView) v.findViewById(R.id.anoLista);
-        nota = (TextView) v.findViewById(R.id.anoLista);
+        nota = (TextView) v.findViewById(R.id.notaLista);
         img = (ImageView) v.findViewById(R.id.img);
     }
 }
