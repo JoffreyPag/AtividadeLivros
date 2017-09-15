@@ -72,7 +72,7 @@ public class BancoHelper extends SQLiteOpenHelper {
                 String selection = LivroContrato.LivroEntry._ID + "= ?";
                 String[] whereArgs = new String[]{String.valueOf(id)};
 
-                // update carro set values = ... where _id=?
+                // update livro set values = ... where _id=?
                 int count = db.update(LivroContrato.LivroEntry.TABLE_NAME, valores, selection, whereArgs);
 
                 return count;
@@ -117,6 +117,53 @@ public class BancoHelper extends SQLiteOpenHelper {
             } while (c.moveToNext());
         }
         return livros;
+    }
+
+    //Consulta um livro pelo id
+    public Livro findLivro(int id) {
+        SQLiteDatabase db = getReadableDatabase();
+        try {
+            String selection = LivroContrato.LivroEntry._ID + "= ?";
+            String[] whereArgs = new String[]{String.valueOf(id)};
+            Cursor c = db.query(LivroContrato.LivroEntry.TABLE_NAME, null, selection, whereArgs, null, null, null, null);
+
+            if (c.moveToFirst()) {
+                Livro liv = new Livro();
+
+                //recupera os atributos de livro
+                liv.setId(c.getInt(c.getColumnIndex(LivroContrato.LivroEntry._ID)));
+                liv.setNome(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.NOME)));
+                liv.setAutor(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.AUTOR)));
+                liv.setAno(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.ANO)));
+                liv.setNota(c.getFloat(c.getColumnIndex(LivroContrato.LivroEntry.NOTA)));
+
+                return liv;
+            } else {
+                return null;
+            }
+        } finally {
+            db.close();
+        }
+    }
+
+    //Atualiza um livro pelo id
+    public void atualizaLivro(Livro livro) {
+        SQLiteDatabase db = getWritableDatabase();
+        try {
+            ContentValues valores = new ContentValues();
+            valores.put(LivroContrato.LivroEntry.NOME, livro.getNome());
+            valores.put(LivroContrato.LivroEntry.AUTOR, livro.getAutor());
+            valores.put(LivroContrato.LivroEntry.ANO, livro.getAno());
+            valores.put(LivroContrato.LivroEntry.NOTA, livro.getNota());
+
+            String selection = LivroContrato.LivroEntry._ID + "= ?";
+            String[] whereArgs = new String[]{String.valueOf(livro.getId())};
+
+            // update livro set values = ... where _id=?
+            db.update(LivroContrato.LivroEntry.TABLE_NAME, valores, selection, whereArgs);
+        } finally {
+            db.close();
+        }
     }
 
     //executa um sql

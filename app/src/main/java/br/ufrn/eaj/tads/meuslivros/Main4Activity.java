@@ -2,6 +2,7 @@ package br.ufrn.eaj.tads.meuslivros;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -49,6 +50,7 @@ public class Main4Activity extends AppCompatActivity {
                 }
             }
         });
+        //Log.i("lista", "Segue a lista\n" +titulos.length);
     }
 
     public void preencheTitulos() {

@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void Cadastro(View view) {
         Intent i = new Intent(this, Main2Activity.class);
+        Bundle b = new Bundle();
+        b.putInt("tipo", 1);
         startActivityForResult(i, RETORNO_CADASTRO);
     }
 
