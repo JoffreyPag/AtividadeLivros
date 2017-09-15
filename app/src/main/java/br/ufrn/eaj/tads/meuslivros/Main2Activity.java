@@ -49,6 +49,7 @@ public class Main2Activity extends AppCompatActivity {
 
         db = new BancoHelper(this);
 
+        //um flag pra saber se essa activity veio do bota cadastro ou de uma atualização de um livro
         if (isUpdate) {
             ed1.setText(nomelivro);
             ed2.setText(autorlivro);
@@ -70,6 +71,7 @@ public class Main2Activity extends AppCompatActivity {
         novoLivro.setAno(ed3.getText().toString());
         novoLivro.setNota(rt.getRating());
 
+        //novamento o flag pra caso seja uma atualização ou um cadastro
         if(isUpdate){
             db.atualizaLivro(novoLivro);
         }else{

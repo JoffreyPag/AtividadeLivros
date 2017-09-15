@@ -40,6 +40,7 @@ public class ActivityListView extends AppCompatActivity {
 
                 Intent intent = new Intent(ActivityListView.this, Main2Activity.class);
                 Bundle bundle = new Bundle();
+                //jogo todas as info do objeto livro pq nao tem como jogar o objeto em simno bundle, uma pena...
                 bundle.putBoolean("update", true);
                 bundle.putString("nomelivro",livro.getNome());
                 bundle.putString("autorlivro",livro.getAutor());
