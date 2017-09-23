@@ -50,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void ListaRecycle(View view){
+        Intent i = new Intent(this, recyclerViewActivity.class);
+        startActivity(i);
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
