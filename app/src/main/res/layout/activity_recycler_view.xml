@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.ufrn.eaj.tads.meuslivros.recyclerViewActivity">
+    tools:context="br.ufrn.eaj.tads.meuslivros.recyclerViewActivity"
+    android:id="@+id/layoutPaidoRecycle">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/RecView"
