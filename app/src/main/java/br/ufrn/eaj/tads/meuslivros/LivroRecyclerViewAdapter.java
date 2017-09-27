@@ -65,7 +65,7 @@ public class LivroRecyclerViewAdapter extends RecyclerView.Adapter {
         final Button undoButton;
         public LivroViewHolder(View v) {
             super(v);
-            titulo = (TextView) v.findViewById(R.id.nomeLivro);
+            titulo = v.findViewById(R.id.nomeLivro);
 
             //autor = (TextView) v.findViewById(R.id.autorLista);
             //ano = (TextView) v.findViewById(R.id.anoLista);
