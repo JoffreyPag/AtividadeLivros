@@ -72,9 +72,11 @@ public class recyclerViewActivity extends AppCompatActivity {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 int posicao = viewHolder.getAdapterPosition();
                 LivroRecyclerViewAdapter adapter = (LivroRecyclerViewAdapter) recyclerView.getAdapter();
-                adapter.remover();
+                adapter.remover(posicao);
             }
         });
+
+        itemHelper.attachToRecyclerView(recyclerView);
 
     }
 
