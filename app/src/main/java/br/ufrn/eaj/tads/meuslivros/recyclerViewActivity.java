@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -60,6 +61,21 @@ public class recyclerViewActivity extends AppCompatActivity {
                 startActivityForResult(intent, RETORNO_ALTERACAO);
             }
         }));
+
+        ItemTouchHelper itemHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int posicao = viewHolder.getAdapterPosition();
+                LivroRecyclerViewAdapter adapter = (LivroRecyclerViewAdapter) recyclerView.getAdapter();
+                adapter.remover();
+            }
+        });
+
     }
 
     private void confDoRecycle() {

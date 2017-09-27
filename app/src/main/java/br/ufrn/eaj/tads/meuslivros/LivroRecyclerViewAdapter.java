@@ -66,6 +66,14 @@ public class LivroRecyclerViewAdapter extends RecyclerView.Adapter {
             nota = (TextView) v.findViewById(R.id.notaLista);
         }
     }
+
+    public void remover(int posicao){
+        Livro livro = listaLivros.get(posicao);
+        if (listaLivros.contains(livro)){
+            listaLivros.remove(posicao);
+            notifyItemRemoved(posicao);
+        }
+    }
 }
 
 
